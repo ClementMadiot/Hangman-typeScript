@@ -16,15 +16,16 @@ const RIGHT_LEG = (
 const LEFT_LEG = (
   <div className="w-[80px] h-[10px] absolute top-[190px] right-0 -rotate-[60deg] origin-bottom-right bg-blackLight"></div>
 );
-function HangmanDrawing() {
+
+const BODY_PART = [ HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG ]
+
+type HangmanDrawingProps = {
+  numberOfGuesses: number
+}
+function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
   return (
     <div className="relative">
-      {HEAD}
-      {BODY}
-      {RIGHT_ARM}
-      {LEFT_ARM}
-      {RIGHT_LEG}
-      {LEFT_LEG}
+      {BODY_PART.slice(0, numberOfGuesses)}
       <div className="h-[50px] w-[10px] top-0 right-0 absolute bg-blackLight " />
       <div className="h-[10px] w-[200px] ml-[120px] bg-blackLight" />
       <div className="h-[400px] w-[10px] ml-[120px] bg-blackLight " />

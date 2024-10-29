@@ -11,12 +11,14 @@ function App() {
 
   const [guessedLetter, setGuessedLetter] = useState<string[]>([]);
   // console.log(wordToGuess);
+  /// All the incorrect letters are the ones where the letter is not in the word to guess
+  const incorrectLetters = guessedLetter.filter(letter => !wordToGuess.includes(letter))
 
   return (
     <div className="max-w-[800px] flex flex-col gap-6 my-0 mx-auto items-center">
       <div className="text-3xl text-center mt-4">Lose Win</div>
-      <HangmanDrawing />
-      <HangmanWord />
+      <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
+      <HangmanWord guessedLetters={guessedLetter} wordToGuessed={wordToGuess} />
       <div className="self-stretch">
         <Keyboard />
       </div>

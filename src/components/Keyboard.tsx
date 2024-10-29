@@ -27,7 +27,7 @@ const KEYS = [
   "z",
 ];
 export default function Keyboard() {
-  const inactive = "opacity-[0.15]"
+  // const inactive = "opacity-[0.15]"
   const active = "hover:bg-neutral-300 focus:bg-blue-200 focus:outline-none focus:ring-0 active:bg-neutral-300"
   return (
     <div className="grid grid-cols-[repeat(auto-fill,minmax(75px,1fr))] gap-2 my-2 ">
@@ -41,7 +41,7 @@ export default function Keyboard() {
             {key}
           </button>
         );
-      })}
+      })} 
     </div>
   );
 }
