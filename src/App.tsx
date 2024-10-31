@@ -30,6 +30,11 @@ function App() {
     [guessedLetter, isLoser, isWinner]
   );
 
+  // New word to guess
+  function getWord() {
+    return words[Math.floor(Math.random() * words.length)];
+  }
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       const key = e.key;
@@ -46,14 +51,34 @@ function App() {
     };
   }, [guessedLetter, addGuessedLetter]);
 
+  // Refresh the page end game
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      const key = e.key;
+      // if key press is not Enter
+      if (key !== "Enter") return;
+
+      e.preventDefault();
+      // clear letter
+      setGuessedLetter([])
+      // set new word
+      setWordToGuess(getWord())
+    };
+    document.addEventListener("keypress", handler);
+
+    return () => {
+      document.removeEventListener("keypress", handler);
+    };
+  }, []);
+
   return (
     <div className="max-w-[800px] flex flex-col gap-6 my-0 mx-auto items-center">
       <div className="text-3xl text-center mt-4">
-        {isWinner && "Winner ! - Refresh to try again"}
-        {isLoser && "Nice Try - Refresh to try again"}
+        {isWinner && "Winner ! - Press Enter to try again"}
+        {isLoser && "Nice Try - Press Enter to try again"}
       </div>
       <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
-      <HangmanWord guessedLetters={guessedLetter} wordToGuessed={wordToGuess} />
+      <HangmanWord reveal={isLoser} guessedLetters={guessedLetter} wordToGuessed={wordToGuess} />
       <div className="self-stretch">
         <Keyboard
           isDisable={isWinner || isLoser}

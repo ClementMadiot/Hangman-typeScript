@@ -1,11 +1,14 @@
 type HangmanWordProps = {
-  guessedLetters: string[]
-  wordToGuessed: string
-}
+  guessedLetters: string[];
+  wordToGuessed: string;
+  reveal?: boolean;
+};
 
-
-function HangmanWord({ guessedLetters, wordToGuessed }: HangmanWordProps) {
-
+function HangmanWord({
+  guessedLetters,
+  wordToGuessed,
+  reveal,
+}: HangmanWordProps) {
   return (
     <div className="flex gap-1 text-8xl font-bold uppercase font-mono">
       {wordToGuessed.split("").map((letter, index) => (
@@ -13,11 +16,21 @@ function HangmanWord({ guessedLetters, wordToGuessed }: HangmanWordProps) {
           key={index}
           className="border-b-[0.1em] border-solid border-blackLight"
         >
-          <span className={` ${guessedLetters.includes(letter) ? "visible" : "invisible"}`}>{letter}</span>
+          <span
+            className={` ${
+              guessedLetters.includes(letter) || reveal
+                ? "visible"
+                : "invisible  "
+            } ${
+              !guessedLetters.includes(letter) && reveal ? "text-red-400" : ""
+            }`}
+          >
+            {letter}
+          </span>
         </span>
       ))}
     </div>
-  );
+  )
 }
 
 export default HangmanWord;
