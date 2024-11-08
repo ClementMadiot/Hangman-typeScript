@@ -28,8 +28,8 @@ function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
       {BODY_PART.slice(0, numberOfGuesses)}
       <div className="h-[50px] w-[10px] top-0 right-0 absolute bg-blackLight " />
       <div className="h-[10px] w-[200px] ml-[120px] bg-blackLight" />
-      <div className="h-[400px] w-[10px] ml-[120px] bg-blackLight " />
-      <div className="h-[10px] w-[250px] bg-blackLight" />
+      <div className="h-[350px] w-[10px] ml-[120px] bg-blackLight " />
+      <div className="h-[10px] w-[200px] ml-6 bg-blackLight" />
     </div>
   );
 }

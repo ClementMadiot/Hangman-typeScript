@@ -7,10 +7,10 @@ type HangmanWordProps = {
 function HangmanWord({
   guessedLetters,
   wordToGuessed,
-  reveal,
+  reveal
 }: HangmanWordProps) {
   return (
-    <div className="flex gap-1 text-8xl font-bold uppercase font-mono">
+    <div className="flex gap-1 text-7xl font-bold uppercase font-mono text-blackLight">
       {wordToGuessed.split("").map((letter, index) => (
         <span
           key={index}

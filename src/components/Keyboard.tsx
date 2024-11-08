@@ -39,8 +39,8 @@ export default function Keyboard({
   addGuessedLetter,
   isDisable = false
 }: KeyboardProps) {
-  const inactive = "opacity-[0.5] bg-red-200 hover:bg-red-200/80";
-  const active = " active:bg-blue-200 bg-blue-200 hover:bg-blue-200/80";
+  const inactive = "opacity-[0.5] bg-red-400 hover:bg-red-400 text-black";
+  const active = " active:bg-blue-300 bg-blue-300 hover:bg-blue-300 text-neutral-800";
 
   return (
     <div className="grid grid-cols-[repeat(auto-fill,minmax(75px,1fr))] gap-2 my-2 ">
@@ -50,8 +50,8 @@ export default function Keyboard({
         return (
           <button
             type="button"
-            className={`inline-block rounded-full  px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-neutral-600 transition-colors focus:outline-none focus:ring-0  ${
-              isActive ? active : "bg-neutral-100 hover:bg-neutral-300"
+            className={`inline-block rounded-full px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-neutral-600 transition-colors focus:outline-none focus:ring-0  ${
+              isActive ? active : "bg-neutral-100 shadow hover:bg-neutral-200/80"
             } ${isInactive ? inactive : ""} `}
             disabled={isInactive || isActive || isDisable}
             key={key}

@@ -8,8 +8,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        blackLight: "#000000dd",
-        white: "#f5f5f5",
+        blackLight: "#303841",
       },
       gridTemplateColumns:{
         'auto-fit-75': 'repeat (auto-fill, minmax(75px, 1fr)'
